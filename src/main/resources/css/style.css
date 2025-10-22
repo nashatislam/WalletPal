@@ -1,0 +1,94 @@
+.root {
+    -fx-padding: 20;
+    -fx-background-color: #cbdfea;
+    -fx-font-size: 14px;
+    -fx-font-family: "Monaco", monospace;
+}
+
+.label {
+    -fx-font-weight: bold;
+    -fx-font-size: 12px;
+    -fx-text-fill: #385f8c;
+    -fx-alignment: CENTER;
+}
+
+.text-field {
+    -fx-background-radius: 8;
+    -fx-border-radius: 8;
+    -fx-padding: 5 10;
+    -fx-border-color: #9db6c4;
+    -fx-background-color: white;
+}
+.text-field:prompt-text {
+    -fx-fill: #888888;
+}
+
+.button {
+    -fx-background-color: #385f8c;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 10;
+    -fx-cursor: hand;
+    -fx-padding: 5 15;
+}
+.button:hover {
+    -fx-background-color: #10367d;
+}
+
+.hbox {
+    -fx-spacing: 10;
+}
+
+.table-view {
+    -fx-border-color: #9db6c4;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-font-size: 12px;
+}
+.table-row-cell {
+    -fx-background-color: #ffffff;
+}
+
+.table-column {
+    -fx-alignment: CENTER-RIGHT;
+}
+
+.table-view .column-header,
+.table-view .column-header .label {
+    -fx-background-color: #385f8c;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+
+.table-view .cell {
+    -fx-padding: 5 15 5 10;
+}
+
+.tab-pane .tab .tab-label {
+    -fx-font-weight: bold;
+    -fx-text-fill: #10367d;
+}
+
+.tab-pane .tab:selected {
+    -fx-background-color: #385f8c;
+}
+
+.tab-pane .tab:selected .tab-label {
+    -fx-text-fill: white;
+}
+
+.tab-pane .tab-content .vbox {
+    -fx-background-color: #ffffff;
+    -fx-padding: 10;
+    -fx-background-radius: 10;
+}
+
+.tab-pane .tab-header-background {
+    -fx-background-color: transparent;
+    -fx-border-color: #10367d;
+    -fx-border-width: 0 0 4 0;
+}
+
+.vbox {
+    -fx-spacing: 10;
+}

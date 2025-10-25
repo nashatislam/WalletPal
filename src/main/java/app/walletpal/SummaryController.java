@@ -53,7 +53,7 @@ public class SummaryController {
         totalSavedLabel.setText(String.format("Total Saved: $%.2f", totalSaved));
         netBalanceLabel.setText(String.format("Net Balance: $%.2f", netBalance));
         budgetUtilizationLabel.setText(String.format("Utilization: %.1f%%", budgetUtilization));
-        remainingBudgetLabel.setText(String.format("Remaining: $%.2f", remainingBudget));
+        remainingBudgetLabel.setText(String.format("Unallocated: $%.2f", remainingBudget));
         savingsProgressLabel.setText(String.format("Savings Progress: %.1f%%", savingsProgress));
 
         if (netBalance < 0) {

@@ -1,94 +1,268 @@
 .root {
-    -fx-padding: 20;
-    -fx-background-color: #cbdfea;
-    -fx-font-size: 14px;
-    -fx-font-family: "Monaco", monospace;
+    -fx-primary: #88B04B;
+    -fx-secondary: #C1D8AC;
+    -fx-accent: #E8F4D9;
+    -fx-background: #F8FBF0;
+    -fx-text: #63564A;
+    -fx-dark: #4A6B5F;
+}
+
+.root, .vbox, .hbox, .tab-pane {
+    -fx-background-color: -fx-background;
 }
 
 .label {
+    -fx-text-fill: -fx-text;
+}
+
+.label[style*="font-size: 28px"] {
+    -fx-text-fill: -fx-primary;
     -fx-font-weight: bold;
-    -fx-font-size: 12px;
-    -fx-text-fill: #385f8c;
-    -fx-alignment: CENTER;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 2, 0.5, 1, 1);
 }
 
-.text-field {
-    -fx-background-radius: 8;
-    -fx-border-radius: 8;
-    -fx-padding: 5 10;
-    -fx-border-color: #9db6c4;
-    -fx-background-color: white;
-}
-.text-field:prompt-text {
-    -fx-fill: #888888;
+.label[text="Personal finance, simplified"] {
+    -fx-text-fill: -fx-dark;
+    -fx-font-style: italic;
 }
 
-.button {
-    -fx-background-color: #385f8c;
-    -fx-text-fill: white;
-    -fx-font-weight: bold;
-    -fx-background-radius: 10;
-    -fx-cursor: hand;
-    -fx-padding: 5 15;
-}
-.button:hover {
-    -fx-background-color: #10367d;
-}
-
-.hbox {
-    -fx-spacing: 10;
-}
-
-.table-view {
-    -fx-border-color: #9db6c4;
-    -fx-border-radius: 8;
-    -fx-background-radius: 8;
-    -fx-font-size: 12px;
-}
-.table-row-cell {
-    -fx-background-color: #ffffff;
-}
-
-.table-column {
-    -fx-alignment: CENTER-RIGHT;
-}
-
-.table-view .column-header,
-.table-view .column-header .label {
-    -fx-background-color: #385f8c;
-    -fx-text-fill: white;
-    -fx-font-weight: bold;
-}
-
-.table-view .cell {
-    -fx-padding: 5 15 5 10;
-}
-
-.tab-pane .tab .tab-label {
-    -fx-font-weight: bold;
-    -fx-text-fill: #10367d;
-}
-
-.tab-pane .tab:selected {
-    -fx-background-color: #385f8c;
-}
-
-.tab-pane .tab:selected .tab-label {
-    -fx-text-fill: white;
-}
-
-.tab-pane .tab-content .vbox {
-    -fx-background-color: #ffffff;
+.tab-pane {
+    -fx-background-color: -fx-background;
+    -fx-background-radius: 15;
+    -fx-border-radius: 15;
     -fx-padding: 10;
-    -fx-background-radius: 10;
+}
+
+.tab-pane .tab-header-area {
+    -fx-padding: 5 0 0 0;
+    -fx-background-color: transparent;
 }
 
 .tab-pane .tab-header-background {
     -fx-background-color: transparent;
-    -fx-border-color: #10367d;
-    -fx-border-width: 0 0 4 0;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 5, 0, 0, 2);
 }
 
-.vbox {
-    -fx-spacing: 10;
+.tab-pane .tab {
+    -fx-background-color: -fx-accent;
+    -fx-background-radius: 10 10 0 0;
+    -fx-border-radius: 10 10 0 0;
+    -fx-padding: 8 20;
+    -fx-border-color: transparent;
+}
+
+.tab-pane .tab:selected {
+    -fx-background-color: -fx-primary;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 3, 0, 0, 1);
+}
+
+.tab-pane .tab:hover {
+    -fx-background-color: #76993D; /* Darker */
+}
+
+.tab .tab-label {
+    -fx-text-fill: -fx-text;
+    -fx-font-weight: bold;
+    -fx-font-size: 14;
+}
+
+.tab:selected .tab-label {
+    -fx-text-fill: white;
+}
+
+.tab-pane .tab-content-area {
+    -fx-background-color: white;
+    -fx-background-radius: 0 0 10 10;
+    -fx-border-radius: 0 0 10 10;
+    -fx-border-color: -fx-accent;
+    -fx-border-width: 0 2 2 2;
+    -fx-padding: 15;
+}
+
+.table-view {
+    -fx-background-color: white;
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+    -fx-border-color: -fx-accent;
+    -fx-border-width: 2;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.05), 5, 0, 0, 2);
+}
+
+.table-view .column-header {
+    -fx-background-color: -fx-secondary;
+    -fx-background-radius: 8 8 0 0;
+    -fx-border-radius: 8 8 0 0;
+    -fx-size: 35;
+    -fx-border-color: transparent;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: transparent;
+    -fx-background-radius: 8 8 0 0;
+}
+
+.table-view .column-header .label {
+    -fx-text-fill: -fx-text;
+    -fx-font-weight: bold;
+    -fx-alignment: CENTER-LEFT;
+    -fx-padding: 0 0 0 10;
+}
+
+.table-view .column-header:hover {
+    -fx-background-color: #A8C989; /* Darker */
+}
+
+.table-row-cell:even {
+    -fx-background-color: #F5F9ED;
+}
+
+.table-row-cell:odd {
+    -fx-background-color: white;
+}
+
+.table-row-cell:hover {
+    -fx-background-color: -fx-accent;
+}
+
+.table-column {
+    -fx-border-color: transparent;
+    -fx-alignment: CENTER-LEFT;
+    -fx-padding: 8 10;
+}
+
+.text-field {
+    -fx-background-color: white;
+    -fx-background-radius: 15;
+    -fx-border-radius: 15;
+    -fx-border-color: -fx-secondary;
+    -fx-border-width: 1.5;
+    -fx-padding: 8 12;
+    -fx-font-size: 14;
+}
+
+.text-field:focused {
+    -fx-border-color: -fx-primary;
+    -fx-border-width: 2;
+}
+
+.button {
+    -fx-background-color: -fx-secondary;
+    -fx-background-radius: 20;
+    -fx-text-fill: -fx-text;
+    -fx-font-weight: bold;
+    -fx-padding: 8 15;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 3, 0, 1, 1);
+    -fx-cursor: hand;
+}
+
+.button:hover {
+    -fx-background-color: #A8C989; /* Darker */
+    -fx-scale-x: 1.05;
+    -fx-scale-y: 1.05;
+}
+
+.button:disabled {
+    -fx-background-color: #E0E0E0;
+    -fx-text-fill: #A0A0A0;
+}
+
+#summaryButton {
+    -fx-background-color: -fx-primary;
+    -fx-text-fill: white;
+}
+
+#summaryButton:hover {
+    -fx-background-color: #76993D; /* Darker */
+}
+
+
+.context-menu {
+    -fx-background-color: white;
+    -fx-background-radius: 8;
+    -fx-border-radius: 8;
+    -fx-border-color: -fx-accent;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 5, 0, 0, 2);
+}
+
+.menu-item {
+    -fx-background-color: transparent;
+    -fx-padding: 8 15;
+}
+
+.menu-item:hover {
+    -fx-background-color: -fx-accent;
+    -fx-background-radius: 5;
+}
+
+/* ===== CHARTS ===== */
+.chart {
+    -fx-background-color: transparent;
+    -fx-padding: 15px;
+}
+
+.chart-content {
+    -fx-padding: 10px;
+}
+
+.chart-title {
+    -fx-text-fill: -fx-text;
+    -fx-font-weight: bold;
+    -fx-font-size: 16px;
+}
+
+.axis {
+    -fx-tick-label-fill: -fx-text;
+    -fx-font-size: 12px;
+}
+
+.axis-label {
+    -fx-text-fill: -fx-dark;
+}
+
+.chart-legend {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+.chart-legend-item {
+    -fx-text-fill: -fx-text;
+    -fx-font-size: 12px;
+}
+
+.default-color0.chart-bar { -fx-bar-fill: -fx-primary; }
+.default-color1.chart-bar { -fx-bar-fill: #EBB125; }
+.default-color2.chart-bar { -fx-bar-fill: #D67B2D; }       /* Darker */
+.default-color3.chart-bar { -fx-bar-fill: #967862; }
+.default-color4.chart-bar { -fx-bar-fill: #704F3C; }       /* Darker */
+
+HBox > VBox {
+    -fx-background-color: white;
+    -fx-background-radius: 15;
+    -fx-border-radius: 15;
+    -fx-border-color: -fx-accent;
+    -fx-border-width: 2;
+    -fx-padding: 15;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 8, 0, 0, 2);
+}
+
+.stacked-bar-chart {
+    -fx-background-color: white;
+    -fx-background-radius: 15;
+    -fx-border-radius: 15;
+    -fx-border-color: -fx-accent;
+    -fx-border-width: 2;
+    -fx-padding: 15;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 8, 0, 0, 2);
+}
+
+VBox > Label[style*="font-weight: bold"] {
+    -fx-text-fill: -fx-dark;
+    -fx-font-size: 16;
+    -fx-padding: 0 0 8 0;
+}
+
+VBox > VBox > Label {
+    -fx-text-fill: -fx-text;
+    -fx-font-size: 13;
+    -fx-padding: 2 0;
 }

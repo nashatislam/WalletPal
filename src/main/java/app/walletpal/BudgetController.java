@@ -1,6 +1,7 @@
 package app.walletpal;
 
 import javafx.collections.FXCollections;
+import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -58,11 +59,14 @@ public class BudgetController {
 
     @FXML
     public void initialize() {
+        loadSavedData();
         setupIncomeTable();
         setupExpenseTable();
         setupSavingsTable();
         setupBudgetValidation();
         updateUIState();
+        setupAutoSave();
+        summaryButton.setOnAction(e -> showSummary());
     }
 
     private void setupBudgetValidation() {
@@ -83,6 +87,7 @@ public class BudgetController {
         expenseTab.setDisable(!hasIncome);
         savingsTab.setDisable(!hasIncome);
         summaryButton.setDisable(!hasIncome);
+
     }
 
     private void updateAddButtons() {
@@ -93,8 +98,8 @@ public class BudgetController {
 
         addExpenseButton.setDisable(available <= 0);
         addSavingsButton.setDisable(available <= 0);
-    }
 
+    }
     private double getTotalIncome() {
         return incomes.stream().mapToDouble(Income::getAmount).sum();
     }
@@ -482,4 +487,23 @@ public class BudgetController {
         Alert alert = new Alert(Alert.AlertType.WARNING, msg, ButtonType.OK);
         alert.showAndWait();
     }
+
+    private void loadSavedData() {
+        DataManager.loadData(incomes, expenses, savings);
+
+        updateUIState();
+        updateAddButtons();
+
+        incomeTable.refresh();
+        expenseTable.refresh();
+        savingsTable.refresh();
+
+    }
+
+    private void setupAutoSave() {
+        incomes.addListener((ListChangeListener<? super Income>) (change) -> DataManager.saveData(incomes, expenses, savings));
+        expenses.addListener((ListChangeListener<? super Expense>) (change) -> DataManager.saveData(incomes, expenses, savings));
+        savings.addListener((ListChangeListener<? super Savings>) (change) -> DataManager.saveData(incomes, expenses, savings));
+    }
+
 }
